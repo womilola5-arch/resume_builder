@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment Test - Resume Builder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 10px;
+        }
+        .checklist {
+            text-align: left;
+            margin: 30px 0;
+        }
+        .checklist li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>✅ Deployment Successful!</h1>
+    
+    <div class="success">
+        <h2>Your Resume Builder is Live!</h2>
+        <p>If you can see this page, your deployment is working correctly.</p>
+    </div>
+
+    <a href="index.html" class="button">Go to Resume Builder →</a>
+
+    <div class="checklist">
+        <h3>Troubleshooting Checklist:</h3>
+        <ul>
+            <li>✅ Can you see this test page? (You're here!)</li>
+            <li>📁 Check that all folders uploaded: css/, js/, assets/</li>
+            <li>📄 Verify index.html is in the root directory</li>
+            <li>🔗 Try accessing: <code>yoursite.com/index.html</code></li>
+            <li>🌐 Clear browser cache and try again</li>
+        </ul>
+
+        <h3>File Structure Should Be:</h3>
+        <pre style="background: #f4f4f4; padding: 15px; border-radius: 6px; text-align: left;">
+resume-builder/
+├── test.html (this file)
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   ├── app.js
+│   ├── templates.js
+│   ├── export.js
+│   ├── ai/
+│   └── features/
+└── README.md
+        </pre>
+
+        <h3>Common Issues:</h3>
+        <ul>
+            <li><strong>404 on index.html:</strong> Make sure index.html is in root folder</li>
+            <li><strong>Blank page:</strong> Check browser console (F12) for errors</li>
+            <li><strong>Styles missing:</strong> Check that css/ folder uploaded</li>
+            <li><strong>JS errors:</strong> Check that js/ folder with all subfolders uploaded</li>
+        </ul>
+
+        <h3>Deployment Platforms:</h3>
+        <ul>
+            <li><strong>GitHub Pages:</strong> Push to main branch, enable Pages in Settings</li>
+            <li><strong>Vercel:</strong> Import from GitHub or drag folder</li>
+            <li><strong>Netlify:</strong> Drag the resume-builder folder to Netlify Drop</li>
+        </ul>
+    </div>
+
+    <h3>Quick Deploy Commands:</h3>
+    <div style="background: #2d2d2d; color: #fff; padding: 15px; border-radius: 6px; text-align: left; margin: 20px 0;">
+        <p style="color: #888; margin: 0 0 10px 0;">For GitHub Pages:</p>
+        <code style="color: #4CAF50;">
+git init<br>
+git add .<br>
+git commit -m "Initial commit"<br>
+git branch -M main<br>
+git remote add origin YOUR_REPO_URL<br>
+git push -u origin main
+        </code>
+
+        <p style="color: #888; margin: 20px 0 10px 0;">For Vercel:</p>
+        <code style="color: #4CAF50;">
+vercel<br>
+# Follow the prompts
+        </code>
+
+        <p style="color: #888; margin: 20px 0 10px 0;">For Netlify:</p>
+        <code style="color: #4CAF50;">
+netlify deploy<br>
+# Or just drag folder to app.netlify.com/drop
+        </code>
+    </div>
+
+    <a href="index.html" class="button">Launch Resume Builder →</a>
+
+    <p style="margin-top: 40px; color: #666;">
+        Need help? Check DEPLOYMENT.md for detailed instructions.
+    </p>
+</body>
+</html>

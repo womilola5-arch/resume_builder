@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - Create Professional Resumes for Free</title>
+    <meta name="description" content="Build professional resumes with AI-powered suggestions. Free resume builder with ATS-friendly templates.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Premium Loading Screen -->
+    <div class="loading-overlay" id="loadingScreen">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading Resume Builder Pro...</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-file-alt"></i>
+                <span>ResumeBuilder Pro</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#templates">Templates</a>
+                <button class="btn-outline" onclick="showQuickMenu()" style="margin-right: 10px;">
+                    <i class="fas fa-th"></i> Tools
+                </button>
+                <a href="#builder" class="btn-primary">Start Building</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Build Your Perfect Resume in Minutes</h1>
+                <p>AI-powered resume builder with professional templates. ATS-friendly, free to use, and export-ready.</p>
+                <div class="hero-buttons">
+                    <button class="btn-large btn-primary" onclick="scrollToBuilder()">
+                        <i class="fas fa-rocket"></i> Create Resume Now
+                    </button>
+                    <button class="btn-large btn-secondary" onclick="showTemplates()">
+                        <i class="fas fa-eye"></i> View Templates
+                    </button>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <h3>100%</h3>
+                    <p>Free Forever</p>
+                </div>
+                <div class="stat">
+                    <h3>ATS</h3>
+                    <p>Optimized</p>
+                </div>
+                <div class="stat">
+                    <h3>AI</h3>
+                    <p>Powered</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Everything You Need to Stand Out</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>AI Content Optimization</h3>
+                    <p>Smart suggestions to improve your resume content and increase interview chances</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>ATS Compatibility</h3>
+                    <p>Ensure your resume passes Applicant Tracking Systems used by recruiters</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Professional Templates</h3>
+                    <p>Choose from multiple industry-specific, beautifully designed templates</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Job-Specific Tailoring</h3>
+                    <p>Customize your resume for specific job descriptions automatically</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Skills Gap Analysis</h3>
+                    <p>Compare your skills against job requirements and get suggestions</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-download"></i>
+                    <h3>Multiple Export Formats</h3>
+                    <p>Download as PDF, DOCX, or share with a link</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Builder Section -->
+    <section id="builder" class="builder-section">
+        <div class="container-fluid">
+            <div class="builder-layout">
+                <!-- Sidebar with form -->
+                <div class="builder-sidebar">
+                    <div class="sidebar-header">
+                        <h2>Build Your Resume</h2>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressBar"></div>
+                        </div>
+                        <p class="progress-text"><span id="progressPercent">0</span>% Complete</p>
+                    </div>
+
+                    <div class="form-sections">
+                        <!-- Personal Information -->
+                        <div class="form-section active" data-section="personal">
+                            <div class="section-header" onclick="toggleSection('personal')">
+                                <h3><i class="fas fa-user"></i> Personal Information</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="section-content">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name *</label>
+                                    <input type="text" id="fullName" placeholder="John Doe" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" placeholder="john@example.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" placeholder="+1 (555) 123-4567" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="location">Location</label>
+                                    <input type="text" id="location" placeholder="New York, NY">
+                                </div>
+                                <div class="form-group">
+                                    <label for="linkedin">LinkedIn Profile</label>
+                                    <input type="url" id="linkedin" placeholder="linkedin.com/in/johndoe">
+                                </div>
+                                <div class="form-group">
+                                    <label for="website">Portfolio/Website</label>
+                                    <input type="url" id="website" placeholder="johndoe.com">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Professional Summary -->
+                        <div class="form-section" data-section="summary">
+                            <div class="section-header" onclick="toggleSection('summary')">
+                                <h3><i class="fas fa-align-left"></i> Professional Summary</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="section-content">
+                                <div class="form-group">
+                                    <label for="summary">Summary/Objective</label>
+                                    <textarea id="summary" rows="5" placeholder="Write a brief professional summary highlighting your key achievements and career goals..."></textarea>
+                                    <button class="btn-ai" onclick="optimizeSummary()">
+                                        <i class="fas fa-magic"></i> AI Optimize
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Work Experience -->
+                        <div class="form-section" data-section="experience">
+                            <div class="section-header" onclick="toggleSection('experience')">
+                                <h3><i class="fas fa-briefcase"></i> Work Experience</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="section-content">
+                                <div id="experienceList"></div>
+                                <button class="btn-add" onclick="addExperience()">
+                                    <i class="fas fa-plus"></i> Add Experience
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Education -->
+                        <div class="form-section" data-section="education">
+                            <div class="section-header" onclick="toggleSection('education')">
+                                <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="section-content">
+                                <div id="educationList"></div>
+                                <button class="btn-add" onclick="addEducation()">
+                                    <i class="fas fa-plus"></i> Add Education
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Skills -->
+                        <div class="form-section" data-section="skills">
+                            <div class="section-header" onclick="toggleSection('skills')">
+                                <h3><i class="fas fa-code"></i> Skills</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="section-content">
+                                <div class="form-group">
+                                    <label for="skillInput">Add Skills</label>
+                                    <input type="text" id="skillInput" placeholder="Type a skill and press Enter">
+                                    <div class="skills-tags" id="skillsTags"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Additional Sections -->
+                        <div class="form-section" data-section="additional">
+                            <div class="section-header" onclick="toggleSection('additional')">
+                                <h3><i class="fas fa-star"></i> Additional Sections</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="section-content">
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" id="certifications"> Certifications
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" id="languages"> Languages
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" id="projects"> Projects
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="sidebar-actions">
+                        <button class="btn-secondary" onclick="saveProgress()">
+                            <i class="fas fa-save"></i> Save Progress
+                        </button>
+                        <button class="btn-primary" onclick="generateResume()">
+                            <i class="fas fa-file-pdf"></i> Generate Resume
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Preview Panel -->
+                <div class="builder-preview">
+                    <div class="preview-header">
+                        <h3>Live Preview</h3>
+                        <div class="preview-controls">
+                            <select id="templateSelector" onchange="changeTemplate()">
+                                <option value="professional">Professional</option>
+                                <option value="modern">Modern</option>
+                                <option value="creative">Creative</option>
+                                <option value="minimal">Minimal</option>
+                            </select>
+                            <button class="btn-icon" onclick="zoomOut()"><i class="fas fa-search-minus"></i></button>
+                            <button class="btn-icon" onclick="zoomIn()"><i class="fas fa-search-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="preview-container" id="previewContainer">
+                        <div class="resume-preview" id="resumePreview">
+                            <div class="preview-placeholder">
+                                <i class="fas fa-file-alt"></i>
+                                <p>Start filling out the form to see your resume preview</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="preview-footer">
+                        <button class="btn-outline" onclick="exportPDF()">
+                            <i class="fas fa-file-pdf"></i> Export as PDF
+                        </button>
+                        <button class="btn-outline" onclick="exportDOCX()">
+                            <i class="fas fa-file-word"></i> Export as DOCX
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>ResumeBuilder Pro</h4>
+                    <p>Build professional resumes with AI assistance. Completely free, forever.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Features</h4>
+                    <ul>
+                        <li><a href="#builder">Resume Builder</a></li>
+                        <li><a href="#templates">Templates</a></li>
+                        <li><a href="#features">AI Optimization</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Resume Tips</a></li>
+                        <li><a href="#">Cover Letters</a></li>
+                        <li><a href="#">Career Advice</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ResumeBuilder Pro. Built with ❤️ for job seekers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <!-- Core Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/export.js"></script>
+    
+    <!-- Phase 2: AI Features -->
+    <script src="js/ai/optimizer.js"></script>
+    <script src="js/ai/ui.js"></script>
+    
+    <!-- Phase 3: Extended Features -->
+    <script src="js/features/coverLetter.js"></script>
+    <script src="js/features/applicationTracker.js"></script>
+    <script src="js/features/versionManager.js"></script>
+    <script src="js/features/quickMenu.js"></script>
+    
+    <!-- Remove Loading Screen -->
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loadingScreen').style.display = 'none';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
